@@ -85,31 +85,45 @@ const CartPanel = () => {
                   <p className="text-sm mt-1">Agrega productos del catálogo</p>
                 </div>
               ) : (
-                items.map((item) => (
-                  <div
-                    key={item.product.id}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 border border-border"
-                  >
-                    <span className="text-2xl">{item.product.icon}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-body font-medium text-sm text-foreground truncate">
-                        {item.product.name}
-                      </p>
-                      {item.product.duration && (
-                        <p className="text-xs text-muted-foreground font-body">{item.product.duration}</p>
-                      )}
-                      <p className="text-sm font-semibold text-primary font-body">
-                        {formatPrice(item.product.price)} {item.quantity > 1 && `x${item.quantity}`}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => removeItem(item.product.id)}
-                      className="p-1.5 rounded-md hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                <>
+                  <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 mb-2 flex flex-col items-center justify-center text-center">
+                    <span className="text-primary font-display font-medium text-sm">
+                      ✨ ¡Aprovecha nuestros Combos! ✨
+                    </span>
+                    <span className="text-muted-foreground font-body text-xs mt-1">
+                      Mientras más plataformas agregues, mayor será tu descuento.
+                    </span>
                   </div>
-                ))
+                  {items.map((item) => (
+                    <div
+                      key={item.product.id}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 border border-border"
+                    >
+                      {item.product.imageUrl ? (
+                        <img src={item.product.imageUrl} alt={item.product.name} className="w-8 h-8 object-contain drop-shadow" />
+                      ) : (
+                        <span className="text-2xl">{item.product.icon}</span>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <p className="font-body font-medium text-sm text-foreground truncate">
+                          {item.product.name}
+                        </p>
+                        {item.product.duration && (
+                          <p className="text-xs text-muted-foreground font-body">{item.product.duration}</p>
+                        )}
+                        <p className="text-sm font-semibold text-primary font-body">
+                          {formatPrice(item.product.price)} {item.quantity > 1 && `x${item.quantity}`}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => removeItem(item.product.id)}
+                        className="p-1.5 rounded-md hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </>
               )}
             </div>
 
@@ -133,10 +147,17 @@ const CartPanel = () => {
 
                 <button
                   onClick={sendToWhatsApp}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-body font-semibold transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-body font-semibold transition-colors mt-2"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Enviar pedido por WhatsApp
+                </button>
+
+                <button
+                  onClick={() => setIsCartOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-primary text-primary hover:bg-primary/10 font-body font-semibold transition-colors mt-2"
+                >
+                  Elegir más productos
                 </button>
 
                 <button

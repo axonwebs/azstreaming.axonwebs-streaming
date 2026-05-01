@@ -1,13 +1,12 @@
 import { MessageCircle } from "lucide-react";
 import { BUSINESS_NAME, WHATSAPP_NUMBER } from "@/data/products";
-import logo from "@/assets/logo.jpg";
 
 const FooterSection = () => {
   return (
     <footer className="border-t border-primary/10 py-12 px-4 bg-card/50">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-4">
-          <img src={logo} alt={BUSINESS_NAME} className="w-12 h-12 rounded-full border border-primary/30" />
+          <img src={window.AppConfig.logoUrl} alt={BUSINESS_NAME} className="w-12 h-12 rounded-full border border-primary/30" />
           <div>
             <h4 className="font-display text-xl font-bold text-gradient-gold">{BUSINESS_NAME}</h4>
             <p className="text-sm text-muted-foreground font-body mt-0.5">
@@ -17,7 +16,7 @@ const FooterSection = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="text-sm text-muted-foreground font-body">+57 317 528 7585</span>
+          <span className="text-sm text-muted-foreground font-body">+57 315 666 9991</span>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"

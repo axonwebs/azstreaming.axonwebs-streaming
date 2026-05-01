@@ -1,0 +1,48 @@
+=======================================================
+GUÍA DE EDICIÓN RÁPIDA - GOLDEN STREAM STORE (HOSTINGER)
+=======================================================
+
+¡Felicidades! Tu web premium está lista y optimizada.
+Esta web fue diseñada para que tú (o tu cliente) puedan 
+cambiar TODO EL CONTENIDO sin saber de programación y sin
+instalar herramientas complicadas.
+
+¿Cómo funciona?:
+Al subir los archivos de esta carpeta a Hostinger, la página 
+estará activa. 
+
+Todo el texto, los productos y enlaces se configuran en un 
+único archivo: config.js
+
+-------------------------------------------------------
+1. ¿CÓMO CAMBIAR PRECIOS, NOMBRES Y WHATSAPP?
+-------------------------------------------------------
+1. Entra a tu Administrador de Archivos en Hostinger.
+2. Abre la carpeta donde subiste tu web (usualmente public_html).
+3. Busca el archivo llamado "config.js" y dale click derecho -> Editar.
+4. Verás todo el contenido de tu web:
+   - Para el número de WhatsApp, edita la línea: whatsappNumber: "573175287585"
+   - Para cambiar un precio, busca el producto y edita el número.
+   - ¡OJO! No borres las comillas ("") ni las comas (,) al final de las líneas.
+
+-------------------------------------------------------
+2. ¿CÓMO CAMBIAR EL LOGO U OTRAS IMÁGENES?
+-------------------------------------------------------
+1. Entra a tu Administrador de Archivos en Hostinger.
+2. Abre la carpeta "images".
+3. Allí verás "logo.jpg".
+4. Sube tu nuevo logo a esa misma carpeta (por ejemplo, "nuevo-logo.png").
+5. Luego, retrocede y edita el archivo "config.js".
+6. Busca la línea: logoUrl: "/images/logo.jpg"
+7. Cámbiala por: logoUrl: "/images/nuevo-logo.png"
+
+-------------------------------------------------------
+3. ¿CÓMO CAMBIAR EL TÍTULO QUE SALE EN GOOGLE?
+-------------------------------------------------------
+1. Edita el archivo "config.js".
+2. Busca la sección "SEO Y METADATOS".
+3. Edita los campos "metaTitle" y "metaDescription" con el 
+   texto que quieres que aparezca cuando compartes tu enlace.
+
+¡Eso es todo! Guarda los cambios en Hostinger, recarga tu 
+página web en el navegador, y los cambios serán inmediatos.

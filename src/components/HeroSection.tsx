@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles, Star } from "lucide-react";
 import { BUSINESS_NAME } from "@/data/products";
-import logo from "@/assets/logo.jpg";
 
 const HeroSection = () => {
   const scrollToCatalog = () => {
@@ -12,7 +11,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/20" />
-      
+
       {/* Gold diagonal lines decoration (inspired by reference) */}
       <div className="absolute inset-0 overflow-hidden opacity-[0.03]">
         <div className="absolute top-0 left-1/4 w-px h-full bg-primary rotate-12 origin-top" />
@@ -48,8 +47,6 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Radial gold glow behind logo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/[0.04] rounded-full blur-[100px]" />
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* Logo */}
@@ -59,14 +56,14 @@ const HeroSection = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="mb-8"
         >
-          <div className="relative inline-block">
-            {/* Glow ring */}
-            <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-150" />
-            <img
-              src={logo}
-              alt={BUSINESS_NAME}
-              className="relative w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-2 border-primary/30 shadow-2xl shadow-primary/20 mx-auto"
-            />
+          <div className="relative inline-flex items-center justify-center">
+            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden mx-auto">
+              <img
+                src={window.AppConfig.logoUrl}
+                alt={BUSINESS_NAME}
+                className="w-full h-full object-cover scale-[1.3]"
+              />
+            </div>
           </div>
         </motion.div>
 
@@ -78,7 +75,7 @@ const HeroSection = () => {
         >
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-body text-primary tracking-wider uppercase">Originales · Estables · Renovables</span>
+            <span className="text-sm font-body text-primary tracking-wider uppercase">Originales · Estables</span>
           </div>
         </motion.div>
 
@@ -130,14 +127,6 @@ const HeroSection = () => {
             Ver Catálogo
             <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
           </button>
-          <a
-            href="https://wa.me/573175287585"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-4 border border-primary/30 text-primary font-body font-medium rounded-xl hover:bg-primary/10 transition-all duration-300 text-sm uppercase tracking-wider"
-          >
-            Solo WhatsApp
-          </a>
         </motion.div>
       </div>
 

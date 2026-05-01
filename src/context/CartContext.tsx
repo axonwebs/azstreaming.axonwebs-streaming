@@ -9,6 +9,7 @@ export interface CartItem {
 interface CartContextType {
   items: CartItem[];
   addItem: (product: Product) => void;
+  removeOneItem: (productId: string) => void;
   removeItem: (productId: string) => void;
   clearCart: () => void;
   totalItems: number;
@@ -38,6 +39,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsCartOpen(true);
   }, []);
 
+  const removeOneItem = useCallback((productId: string) => {
+    setItems((prev) => {
+      const existing = prev.find((i) => i.product.id === productId);
+      if (!existing) return prev;
+      if (existing.quantity === 1) {
+        return prev.filter((i) => i.product.id !== productId);
+      }
+      return prev.map((i) =>
+        i.product.id === productId ? { ...i, quantity: i.quantity - 1 } : i
+      );
+    });
+  }, []);
+
   const removeItem = useCallback((productId: string) => {
     setItems((prev) => prev.filter((i) => i.product.id !== productId));
   }, []);
@@ -51,7 +65,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, clearCart, totalItems, subtotal, discount, total, isCartOpen, setIsCartOpen }}
+      value={{ items, addItem, removeOneItem, removeItem, clearCart, totalItems, subtotal, discount, total, isCartOpen, setIsCartOpen }}
     >
       {children}
     </CartContext.Provider>
