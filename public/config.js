@@ -18,7 +18,7 @@ window.AppConfig = {
     // 3. IMÁGENES
     // Si subes una nueva imagen a la carpeta "images/" en Hostinger, 
     // cambia el nombre aquí (ej: "/images/nuevo-logo.png")
-    logoUrl: "/images/logo.png",
+    logoUrl: "/images/logo.png?v=1.1",
 
     // 4. CATÁLOGO DE PRODUCTOS
     // Puedes agregar, editar el precio o eliminar productos aquí.

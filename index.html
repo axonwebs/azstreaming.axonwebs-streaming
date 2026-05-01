@@ -12,7 +12,12 @@
   <meta property="og:description"
     content="Las mejores plataformas de streaming y productividad al mejor precio. Activación inmediata." />
   <meta property="og:type" content="website" />
-  <script src="/config.js"></script>
+  <script>
+    // Cache busting para config.js
+    const script = document.createElement('script');
+    script.src = '/config.js?v=' + Date.now();
+    document.head.appendChild(script);
+  </script>
 </head>
 
 <body>
