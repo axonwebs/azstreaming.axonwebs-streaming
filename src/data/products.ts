@@ -17,15 +17,15 @@ export interface Product {
   tag?: string;          // Etiqueta opcional (ej: "Popular", "Oferta")
 }
 
-export const products: Product[] = window.AppConfig.products;
+export const products: Product[] = window.AppConfig?.products || [];
 
 /* ============================================
    CONFIGURACIÓN DEL NEGOCIO
    ============================================ */
 
-export const BUSINESS_NAME = window.AppConfig.businessName;
-export const WHATSAPP_NUMBER = window.AppConfig.whatsappNumber;
-export const COMBO_DISCOUNT_PER_ITEM = window.AppConfig.comboDiscountPerItem; // Descuento por cada producto adicional
+export const BUSINESS_NAME = window.AppConfig?.businessName || "Tienda Online";
+export const WHATSAPP_NUMBER = window.AppConfig?.whatsappNumber || "";
+export const COMBO_DISCOUNT_PER_ITEM = window.AppConfig?.comboDiscountPerItem || 0; // Descuento por cada producto adicional
 
 export const formatPrice = (price: number): string => {
   return new Intl.NumberFormat("es-CO", {

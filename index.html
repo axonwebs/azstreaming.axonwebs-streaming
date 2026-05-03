@@ -12,11 +12,27 @@
   <meta property="og:description"
     content="Las mejores plataformas de streaming y productividad al mejor precio. Activación inmediata." />
   <meta property="og:type" content="website" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <script>
-    // Cache busting para config.js
-    const script = document.createElement('script');
-    script.src = '/config.js?v=' + Date.now();
-    document.head.appendChild(script);
+    // 1. Eliminar Service Workers antiguos que causan la pantalla negra
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+          console.log('Service Worker desregistrado para corregir pantalla negra');
+        }
+      });
+    }
+
+    // 2. Cache busting para config.js con carga forzada
+    (function() {
+      const script = document.createElement('script');
+      script.src = '/config.js?v=' + Date.now();
+      script.async = false;
+      document.head.appendChild(script);
+    })();
   </script>
 </head>
 
